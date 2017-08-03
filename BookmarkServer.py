@@ -98,6 +98,8 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.send_response(303)
             self.send_header('Location', '/')
             self.end_headers()
+            self.wfile.write(
+                "yahooo".format(longuri).encode())
         else:
             # Didn't successfully fetch the long URI.
             self.send_response(404)
