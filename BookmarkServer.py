@@ -57,6 +57,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
                 self.send_response(303)
                 self.send_header('Location', memory[name])
                 self.end_headers()
+                self.wfile.write("I do know '{}'.".format(name).encode())
             else:
                 # We don't know that name! Send a 404 error.
                 self.send_response(404)
